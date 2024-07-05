@@ -12,7 +12,8 @@ DLPOperationType DLPOperationFromString( const std::string &str )
         return DLPOperationType::FileTransfer;
     if ( str == "delete" )
         return DLPOperationType::Delete;
-
+    if (str == "applicationWhitelisting") // Added line
+        return DLPOperationType::ApplicationWhitelisting;    
     throw std::runtime_error( "Unknown channel " + str );
 }
 
@@ -27,6 +28,8 @@ std::string DLPOperationToString( DLPOperationType channel )
         return "fileTransfer";
     case DLPOperationType::Delete:
         return "delete";
+    case DLPOperationType::ApplicationWhitelisting: // Added case
+        return "applicationWhitelisting";
     }
 
     return "";

@@ -7,6 +7,7 @@ enum class DLPOperationType {
     IM,
     FileTransfer,
     Delete,
+    ApplicationWhitelisting, // Added line
 };
 
 DLPOperationType DLPOperationFromString( const std::string &str );
