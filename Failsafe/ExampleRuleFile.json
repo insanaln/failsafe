@@ -34,7 +34,7 @@
             "name": "Allow text files with specific applications",
             "priority": 1,
             "operationType": "applicationWhitelisting",
-            "action": "allow",
+            "action": "block",
             "conditions": {
                 "fileExtension": ".txt",
                 "allowedApplications": [
