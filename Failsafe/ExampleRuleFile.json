@@ -38,7 +38,7 @@
             "conditions": {
                 "fileExtension": ".txt",
                 "allowedApplications": [
-                    "gedit", "/usr/bin/gedit"
+                    "gedit"
                 ]
             }
         }

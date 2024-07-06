@@ -1,5 +1,6 @@
 #pragma once
 
+#include <nlohmann/json.hpp>
 #include <cstdlib>
 #include <iostream>
 #include <fstream>
@@ -10,6 +11,9 @@
 #include "SharedComponents/RuleProvider/DLP/DLPOperationType.hpp"
 
 class DLPOperation {
+private:
+    std::string allowedApplication; // This variable holds the name of the allowed application
+
 public:
     virtual ~DLPOperation() = default;
 
@@ -48,10 +52,27 @@ public:
         return controlMessage_->ToString();
     }
 
+    DLPOperation()
+    {
+        readApplicationNameFromJson();
+    }
+
+    void readApplicationNameFromJson()
+    {
+        std::ifstream i("path/to/ExampleRule.json");
+        if (!i.is_open()) {
+            std::cerr << "Failed to open ExampleRule.json" << std::endl;
+            return;
+        }
+        nlohmann::json j;
+        i >> j;
+        allowedApplication = j["allowedApplication"].get<std::string>();
+        i.close();
+    }
 
     // Method to get the application path on an Ubuntu system
-    std::string ApplicationPath(const std::string& applicationName) const {
-        std::string command = "which " + applicationName + " > /tmp/app_path.txt";
+    std::string ApplicationPath() const {
+        std::string command = "which " + allowedApplication + " > /tmp/app_path.txt";
         int result = std::system(command.c_str());
 
         if (result != 0) {
@@ -70,13 +91,6 @@ public:
         return path;
     }
 
-    std::string getApplicationPath() const {
-        // Implement based on your application's logic
-        // For example, return ApplicationPath(applicationName);
-        std::string applicationName = this->applicationName; // You need to have this member or a way to get it
-        return ApplicationPath(applicationName);
-    }    
-    
 protected:
     DLPOperation( DLPOperationType operation, std::shared_ptr< FSMessage > controlMessage )
         : operation_( operation ),
