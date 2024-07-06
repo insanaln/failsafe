@@ -49,10 +49,10 @@ bool CommonDLPConditions::isApplicationAllowed(const std::string& applicationPat
             doesMatch = doesMatch && ( std::regex_match( castedOp.SourcePath().Path().string(),
                                                          pathRegex_.value() ) );
         
-        // Check for application whitelisting
+        // Check for application whitelisting using ExecutablePath
         if (allowedApplications_.has_value()) {
-            std::string applicationPath = operation.getApplicationPath(); // Assuming DLPOperation has getApplicationPath method
-            if (!isApplicationAllowed(applicationPath)) {
+            std::string executablePath = std::string(operation.ExecutablePath()); // Use ExecutablePath instead
+            if (!isApplicationAllowed(executablePath)) {
                 return false; // The application is not whitelisted, so the condition fails
             }
         }
