@@ -32,7 +32,7 @@
 
         {
             "name": "Allow text files with specific applications",
-            "priority": 1,
+            "priority": 0,
             "operationType": "applicationWhitelisting",
             "action": "block",
             "conditions": {
