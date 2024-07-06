@@ -59,7 +59,7 @@ public:
 
     void readApplicationNameFromJson()
     {
-        std::ifstream i("path/to/ExampleRule.json");
+        std::ifstream i("ExampleRuleFile.json");
         if (!i.is_open()) {
             std::cerr << "Failed to open ExampleRule.json" << std::endl;
             return;
