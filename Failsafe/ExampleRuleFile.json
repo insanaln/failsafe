@@ -36,7 +36,7 @@
             "operationType": "applicationWhitelisting",
             "action": "block",
             "conditions": {
-                "fileExtension": ".txt",
+                "fileExtension": ".pdf",
                 "allowedApplications": [
                     "gedit"
                 ]
