@@ -52,6 +52,9 @@ public:
         return controlMessage_->ToString();
     }
 
+    
+    
+    /*
     DLPOperation()
     {
         readApplicationNameFromJson();
@@ -90,7 +93,7 @@ public:
         std::remove("/tmp/app_path.txt");
         return path;
     }
-
+    */
 protected:
     DLPOperation( DLPOperationType operation, std::shared_ptr< FSMessage > controlMessage )
         : operation_( operation ),
