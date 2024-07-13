@@ -1,18 +1,21 @@
 #pragma once
 
-#include <nlohmann/json.hpp>
-#include <cstdlib>
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <memory>
+//#include <nlohmann/json.hpp>
+//#include <cstdlib>
+//#include <iostream>
+//#include <fstream>
+//#include <string>
+//#include <memory>
 
 #include "Modules/DLP/FSMessages/FSMessage.hpp"
 #include "SharedComponents/RuleProvider/DLP/DLPOperationType.hpp"
 
 class DLPOperation {
+
+/*
 private:
     std::string allowedApplication; // This variable holds the name of the allowed application
+    */
 
 public:
     virtual ~DLPOperation() = default;
