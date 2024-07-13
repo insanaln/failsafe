@@ -14,10 +14,12 @@ CommonDLPConditions::CommonDLPConditions( const nlohmann::json &j )
     if ( j.contains( "pathRegex" ) )
         pathRegex_ = std::make_optional( j[ "pathRegex" ].get< std::regex >() );
 
+    /*
     // Initialize allowedApplications_ if it's present in the JSON object
     if(j.contains("allowedApplications") && j["allowedApplications"].is_array()) {
         allowedApplications_ = j["allowedApplications"].get<std::vector<std::string>>();
     }
+    */
 }
 
 /*
