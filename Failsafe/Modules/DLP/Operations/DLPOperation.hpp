@@ -5,7 +5,7 @@
 //#include <iostream>
 //#include <fstream>
 //#include <string>
-//#include <memory>
+#include <memory>
 
 #include "Modules/DLP/FSMessages/FSMessage.hpp"
 #include "SharedComponents/RuleProvider/DLP/DLPOperationType.hpp"
